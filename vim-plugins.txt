@@ -1,0 +1,10 @@
+ag.vim
+bufexplorer.vim
+fuf.vim
+fugitive.vim
+giphy.vim
+godoc.vim
+l9.vim
+ruby.vim
+tagbar.vim
+taglist.vim
