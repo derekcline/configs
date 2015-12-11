@@ -1,0 +1,43 @@
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " always show status line
+set encoding=utf-8 " Necessary to show Unicode glyphs (powerline)
+"set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+filetype plugin indent on
+
+syntax on
+set number         " line numbers
+set ruler          " column/line/% status info
+set hlsearch
+set autoindent
+set history=1000
+set viminfo+=%     " restore buffer list if zvim is launched without a file arg
+set viminfo+=r/tmp " don't save info for temp files
+"set cursorline
+if has("unnamedplus")
+  set clipboard=unnamedplus
+elseif has("clipboard")
+  set clipboard=unnamed
+endif
+
+" the following settings are controversial!
+set expandtab      " expand tabs into spaces 'set noet' to disable
+set softtabstop=4  " 'set sts=' to disable
+set shiftwidth=4   " 'set sw=' to disable 
+
+" Colors
+syntax enable
+colorscheme default
+set t_Co=256                        " force vim to use 256 colors
+let g:solarized_termcolors=256      " use solarized 256 fallback
+
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" Make tabs, trailing whitespace, and non-breaking spaces visible
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
