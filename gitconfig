@@ -1,0 +1,47 @@
+[user]
+    name = Derek Cline
+    email = derek.cline@ticketmaster.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[pager]
+    stash = false
+[alias]
+    st = status -sb
+    ci = commit -v
+    co = checkout
+    cp = cherry-pick
+    cl = clone
+    br = branch
+    show-files = show --name-only
+    blog = log --graph --decorate --all --pretty=oneline --abbrev-commit --source
+    clog = log --graph --decorate --all --pretty=oneline --abbrev-commit --color
+    blog = log --graph --decorate --all --color --pretty=oneline --abbrev-commit --source
+    glog = log --graph --decorate --all --color --date=short --pretty='format:%C(yellow)%h %C(blue)%ad %C(red)%d %C(reset)%s %C(green)[%cn]'
+    springcleaning = for-each-ref --sort=-committerdate --format='%(refname:short) %(committerdate:short)'
+    sl = stash list
+    sll = stash-list
+    slll = stash-list --full
+    ss = stash save
+    sa = "!sh -c 'git stash apply stash@{$1}' -"
+    sd = "!sh -c 'git stash drop stash@{$1}' -"
+    sanity = diff --unified=10 develop
+[core]
+    editor = vim
+    excludesfile = /Users/derek.cline/.gitignore_global
+[push]
+    default = upstream
+[diff]
+    tool = opendiff
+[merge]
+    tool = opendiff
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
